@@ -1,0 +1,56 @@
+.filter_button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--grey-medium);
+    border-radius: 8px;
+    margin: 0 0 10px 0;
+    padding: 4px 12px 4px 12px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.filter_button__title_container {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.filter_button__search_button {
+    margin: 0;
+    padding: 0;
+}
+
+.filter_button__search_icon {
+    height: 20px;
+    width: 20px;
+    background-image: url(./../../images/search_icon.svg);
+}
+
+.filter_button__title {
+    font-family: 'Manrope', 'Arial', sans-serif;
+    font-size: var(--font-size-medium-12);
+    font-style: var(--font-style-normal);
+    font-weight: var(--font-weight-regular);
+    color: var(--grey-nonactive);
+    align-self: center;
+    margin: 0 0 0 8px;
+    padding: 0;
+}
+
+.filter_button__open_button {
+    height: 16px;
+    width: 16px;
+}
+
+.filter_button__arrow_icon_open {
+    height: 16px;
+    width: 16px;
+    background-image: url(./../../images/open_up_icon.svg);
+}
+
+.filter_button__arrow_icon_close {
+    height: 16px;
+    width: 16px;
+    background-image: url(./../../images/close_dawn_icon.svg);
+}

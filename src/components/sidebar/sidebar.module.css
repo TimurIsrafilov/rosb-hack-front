@@ -1,0 +1,248 @@
+.sidebar {
+    display: flex;
+    gap: 20px
+}
+
+.sidebar__vertical_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 64px;
+    background-color: var(--dark-grey);
+    margin: 0;
+    padding: 24px 10px;
+}
+
+.sidebar__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px
+}
+
+.sidebar__link {}
+
+.sidebar__logo {
+    margin: 0 0 36px 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.sidebar__avatar {
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.sidebar__button_icon {
+    height: 48px;
+    width: 48px;
+    border: none;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.sidebar__button_menu {
+    background-image: url(./../../images/menu_icon.svg);
+}
+
+.sidebar__button_teams {
+    background-image: url(./../../images/teams_icon.svg);
+}
+
+.sidebar__button_team {
+    background-image: url(./../../images/team_icon.svg);
+}
+
+.sidebar__button_settings {
+    background-image: url(./../../images/settings_icon.svg);
+}
+
+.sidebar__button_info {
+    background-image: url(./../../images/info_icon.svg);
+}
+
+.sidebar__menu {
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar__menu_container {
+    margin: 0;
+    padding: 40px 16px 0 0;
+    height: 100%;
+    width: 248px;
+    border-right: 1px solid var(--dark-grey-opacity);
+    box-sizing: border-box;
+}
+
+.sidebar__menu_title_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sidebar__menu_title {
+    font-family: 'Manrope', 'Arial', sans-serif;
+    font-size: var(--font-size-h1-24);
+    font-style: var(--font-style-normal);
+    font-weight: var(--font-weight-semibold);
+    color: var(--dark-grey);
+    margin: 0 0 62px 0;
+    padding: 0;
+}
+
+.sidebar__menu_label {
+    font-family: 'Manrope', 'Arial', sans-serif;
+    font-size: var(--font-size-h2-16);
+    font-style: var(--font-style-normal);
+    font-weight: var(--font-weight-semibold);
+    color: var(--dark-grey);
+    margin: 0;
+    padding: 0;
+    height: 30px;
+    border-bottom: 2px solid var(--dark-grey-opacity);
+}
+
+.sidebar__menu_points_container {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0 0 0;
+    padding: 0;
+    gap: 20px
+}
+
+.sidebar__menu_items_icons_container {
+    display: flex;
+    gap: 20px
+}
+
+.sidebar__menu_items_icon {
+    height: 123px;
+    width: 2px;
+    border: none;
+    background-color: transparent;
+    margin: 0 0 0 20px;
+    padding: 0;
+    background-image: url(./../../images/pole_icon.svg);
+    align-self: center;
+}
+
+.sidebar__menu_icon_dot {
+    position: absolute;
+    top: 16px;
+    left: -24px;
+    height: 6px;
+    width: 6px;
+    background-image: url(./../../images/dot_icon.svg);
+}
+
+.sidebar__menu_items_container {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    gap: 4px;
+    flex-grow: 1;
+}
+
+.sidebar__menu_link {
+    position: relative;
+    text-decoration: none;
+}
+
+.sidebar__menu_item_button {
+    font-family: 'Manrope', 'Arial', sans-serif;
+    font-size: var(--font-size-medium-12);
+    font-style: var(--font-style-normal);
+    font-weight: var(--font-weight-medium);
+    color: var(--dark-grey);
+    border: none;
+    border-radius: 12px;
+    background-color: transparent;
+    margin: 0;
+    padding: 0 12px;
+    height: 36px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar__menu_item_button_active {
+    background-color: var(--grey);
+}
+
+.sidebar__menu_point {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    border-radius: 12px;
+    background-color: transparent;
+    margin: 0;
+    padding: 0 4px;
+    height: 36px;
+    cursor: pointer;
+}
+
+.sidebar__menu_point_active {
+    background-color: var(--grey);
+}
+
+.sidebar__menu_button_container {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar__menu_point_button_title {
+    font-family: 'Manrope', 'Arial', sans-serif;
+    font-size: var(--font-size-h3-14);
+    font-style: var(--font-style-normal);
+    font-weight: var(--font-weight-medium);
+    color: var(--dark-grey);
+    margin: 0;
+    padding: 0;
+    justify-self: start;
+}
+
+.sidebar__menu_button_icon {
+    height: 24px;
+    width: 24px;
+    border: none;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.sidebar__menu_button_product {
+    background-image: url(./../../images/product_icon.svg);
+}
+
+.sidebar__menu_button_dashboard {
+    background-image: url(./../../images/dashboard_icon.svg);
+}
+
+.sidebar__menu_button_design {
+    background-image: url(./../../images/design_icon.svg);
+}
+
+.sidebar__menu_button_plus {
+    background-image: url(./../../images/plus_icon.svg);
+}
+
+.sidebar__menu_button_minus {
+    background-image: url(./../../images/minus_icon.svg);
+}
+
+.sidebar__menu_button_open {
+    margin: 40px 0 0 0;
+    padding: 0;
+    background-image: url(./../../images/arrow_right_icon.svg);
+}
+
+.sidebar__menu_button_close {
+    background-image: url(./../../images/arrow_left_icon.svg);
+}

@@ -1,0 +1,29 @@
+.info_card {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 10px 24px;
+    background-color: var(--grey);
+    border-radius: 12px;
+    gap: 6px;
+}
+
+.info_card__number {
+    font-family: 'Manrope', 'Arial', sans-serif;
+    font-size: var(--font-size-h3-14);
+    font-style: var(--font-style-normal);
+    font-weight: var(--font-weight-semibold);
+    color: var(--dark-grey);
+    margin: 0;
+    padding: 0;
+}
+
+.info_card__title {
+    font-family: 'Manrope', 'Arial', sans-serif;
+    font-size: var(--font-size-small-10);
+    font-style: var(--font-style-normal);
+    font-weight: var(--font-weight-regular);
+    color: var(--dark-grey);
+    margin: 0;
+    padding: 0;
+}

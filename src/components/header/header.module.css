@@ -1,0 +1,105 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 121px;
+    /* width: 100%; */
+    margin: 0 0 16px 0;
+    padding: 0;
+    
+    gap: 26px;
+    border-bottom: 2px solid var(--dark-grey-opacity);
+
+}
+
+.header__main_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.header__title {
+    font-family: 'Manrope', 'Arial', sans-serif;
+    font-size: var(--font-size-h1-24);
+    font-style: var(--font-style-normal);
+    font-weight: var(--font-weight-semibold);
+    color: var(--dark-grey);
+    margin: 0;
+    padding: 0;
+}
+
+.header__buttons_container {
+    display: flex;
+    gap: 8px
+}
+
+
+.header__button {
+    font-family: 'Manrope', 'Arial', sans-serif;
+    font-size: var(--font-size-h2-16);
+    font-style: var(--font-style-normal);
+    font-weight: var(--font-weight-semibold);
+    margin: 0;
+    padding: 0;
+    height: 40px;
+}
+
+
+
+.header__icons_container {
+    display: flex;
+    gap: 8px
+}
+
+.header__icon {
+    height: 40px;
+    width: 40px;
+    border: none;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.header__icon_email {
+    background-image: url(./../../images/email_icon.svg);
+}
+
+.header__icon_bell {
+    background-image: url(./../../images/bell_icon.svg);
+}
+
+.header__icon_question {
+    background-image: url(./../../images/question_icon.svg);
+}
+
+
+.header__menu_container {
+    display: flex;
+    gap: 24px
+}
+
+.header__menu_item_link {
+    text-decoration: none;
+}
+
+
+.header__menu_item {
+    display: flex;
+    align-items: center;
+    font-family: 'Manrope', 'Arial', sans-serif;
+    font-size: var(--font-size-h3-14);
+    font-style: var(--font-style-normal);
+    font-weight: var(--font-weight-semibold);
+    color: var(--grey-nonactive);
+    margin: 0;
+    padding: 0;
+    height: 51px;
+}
+
+.header__menu_item_active {
+    color: var(--dark-grey);
+    border-bottom: 2px solid var(--red);
+}
