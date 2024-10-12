@@ -220,104 +220,104 @@ export const WORKERS = "/workers";
 export const  EMPLOEES = "/emploees";
 export const  BASE_URL = "http://rosbank-hackathon.bounceme.net/api/";
 
-const user = {
-  id: 3,
-  name_surname: "Зотов Давид",
-  position: "Разработчик / Программист",
-  team: "teamId", // "string" id клманды в которой он состоит ФЛ
-  grade: "Junior",
-  hard_skills: {
-    foreign_languages: [
-      {
-        item: "Английский язык",
-        value: 3,
-        correspondence: false,
-        bf: true,
-        key: true,
-        education: false,
-        education_in_progress: false,
-      },
-      {
-        item: "Китайский язык",
-        value: 3,
-        correspondence: false,
-        bf: true,
-        key: true,
-        education: false,
-        education_in_progress: false,
-      },
-    ],
-    programming_languages: [
-      { item: "C++", value: 4 },
-      { item: "Java", value: 3 },
-      { item: "Python++", value: 5 },
-    ],
-    graphic_programs: [
-      { item: "CorelDraw", value: 4 },
-      { item: "PhotoShop", value: 2 },
-    ],
-    operation_systems: [
-      { item: "Linux", value: 1 },
-      { item: "MacOS", value: 3 },
-      { item: "Windows", value: 4 },
-    ],
-    project_management_systems: [
-      { item: "Trello", value: 4 },
-      { item: "Jira", value: 3 },
-    ],
-    data_base: [
-      { item: "MySQL", value: 4 },
-      { item: "MS SQL Server", value: 3 },
-      { item: "Clickhouse", value: 4 },
-    ],
-    data_science: [
-      { item: "ML", value: 4 },
-      { item: "Pandas", value: 2 },
-      { item: "Seaborn", value: 4 },
-    ],
-  },
-  soft_skills: {
-    leadership: [
-      { item: "Креативное мышление", value: 4 },
-      { item: "Принятие решения", value: 3 },
-      { item: "Решение проблем", value: 5 },
-      { item: "Управление проектом", value: 4 },
-      { item: "Эмоциональный интеллект", value: 2 },
-    ],
-    interpersonal: [{ item: "Межличностные навыки", value: 4 }],
-    business_communication: [{ item: "Ораторское искусство", value: 3 }],
-    teamwork: [
-      { item: "Делегирование", value: 4 },
-      { item: "Менторство", value: 2 },
-      { item: "Обратная связь", value: 4 },
-    ],
-    time_management: [
-      { item: "Ораторское искусство", value: 4 },
-      { item: "Соблюдение сроков", value: 3 },
-    ],
-  },
-};
+// const user = {
+//   id: 3,
+//   name_surname: "Зотов Давид",
+//   position: "Разработчик / Программист",
+//   team: "teamId", // "string" id клманды в которой он состоит ФЛ
+//   grade: "Junior",
+//   hard_skills: {
+//     foreign_languages: [
+//       {
+//         item: "Английский язык",
+//         value: 3,
+//         correspondence: false,
+//         bf: true,
+//         key: true,
+//         education: false,
+//         education_in_progress: false,
+//       },
+//       {
+//         item: "Китайский язык",
+//         value: 3,
+//         correspondence: false,
+//         bf: true,
+//         key: true,
+//         education: false,
+//         education_in_progress: false,
+//       },
+//     ],
+//     programming_languages: [
+//       { item: "C++", value: 4 },
+//       { item: "Java", value: 3 },
+//       { item: "Python++", value: 5 },
+//     ],
+//     graphic_programs: [
+//       { item: "CorelDraw", value: 4 },
+//       { item: "PhotoShop", value: 2 },
+//     ],
+//     operation_systems: [
+//       { item: "Linux", value: 1 },
+//       { item: "MacOS", value: 3 },
+//       { item: "Windows", value: 4 },
+//     ],
+//     project_management_systems: [
+//       { item: "Trello", value: 4 },
+//       { item: "Jira", value: 3 },
+//     ],
+//     data_base: [
+//       { item: "MySQL", value: 4 },
+//       { item: "MS SQL Server", value: 3 },
+//       { item: "Clickhouse", value: 4 },
+//     ],
+//     data_science: [
+//       { item: "ML", value: 4 },
+//       { item: "Pandas", value: 2 },
+//       { item: "Seaborn", value: 4 },
+//     ],
+//   },
+//   soft_skills: {
+//     leadership: [
+//       { item: "Креативное мышление", value: 4 },
+//       { item: "Принятие решения", value: 3 },
+//       { item: "Решение проблем", value: 5 },
+//       { item: "Управление проектом", value: 4 },
+//       { item: "Эмоциональный интеллект", value: 2 },
+//     ],
+//     interpersonal: [{ item: "Межличностные навыки", value: 4 }],
+//     business_communication: [{ item: "Ораторское искусство", value: 3 }],
+//     teamwork: [
+//       { item: "Делегирование", value: 4 },
+//       { item: "Менторство", value: 2 },
+//       { item: "Обратная связь", value: 4 },
+//     ],
+//     time_management: [
+//       { item: "Ораторское искусство", value: 4 },
+//       { item: "Соблюдение сроков", value: 3 },
+//     ],
+//   },
+// };
 
-const employee = {
-  employee_id: 3,
-  employee_name_surname: "Зотов Давид",
-  employee_position_name: "Разработчик / Программист",
-  employee_team_name: "ФЛ",
-  employee_grade_name: "Junior",
-  employee_bus_factor: 'boolean',
-  employee_key: 'boolean',
-  skills: [
-    {
-      skill_name: "Английский язык",
-      skill_competence_name: "Знание иностранных языков",
-      skill_domain_name: "Языковые навыки и коммуникация",
-      skill_hard_soft_type: "Soft",
-      skill_estimation: 0, // number (options 0,1,2,3,4)
-      skill_accordance: 'boolean',
-      skill_key: 'boolean',
-      skill_education_request: 'boolean',
-      skill_education_in_progress: 'boolean',
-    },
-    // ... по каждому скилу такой объект
-  ],
-};
+// const employee = {
+//   employee_id: 3,
+//   employee_name_surname: "Зотов Давид",
+//   employee_position_name: "Разработчик / Программист",
+//   employee_team_name: "ФЛ",
+//   employee_grade_name: "Junior",
+//   employee_bus_factor: 'boolean',
+//   employee_key: 'boolean',
+//   skills: [
+//     {
+//       skill_name: "Английский язык",
+//       skill_competence_name: "Знание иностранных языков",
+//       skill_domain_name: "Языковые навыки и коммуникация",
+//       skill_hard_soft_type: "Soft",
+//       skill_estimation: 0, // number (options 0,1,2,3,4)
+//       skill_accordance: 'boolean',
+//       skill_key: 'boolean',
+//       skill_education_request: 'boolean',
+//       skill_education_in_progress: 'boolean',
+//     },
+//     // ... по каждому скилу такой объект
+//   ],
+// };

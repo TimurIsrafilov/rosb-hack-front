@@ -1,15 +1,24 @@
+import useCalculate from "../../hooks/calculate";
 import InfoCard from "../info-card/info-card";
 import styles from "./info-panel.module.css";
 
 import { v4 as uuidv4 } from "uuid";
 
 function InfoPanel(props: any) {
+  const {
+    employeeNumber,
+    employeeBusFactor,
+    employeeKey,
+    skillEducationRequest,
+    skillEducationInProgress,
+  }: any = useCalculate();
+
   const infoCards = [
-    { number: 100, title: "Всего в команде" },
-    { number: 53, title: "Бас-фактор" },
-    { number: 77, title: "Key-people" },
-    { number: 53, title: "Запросы на обучение" },
-    { number: 11, title: "Учатся" },
+    { number: employeeNumber.length, title: "Всего в команде" },
+    { number: employeeBusFactor.length, title: "Бас-фактор" },
+    { number: employeeKey.length, title: "Key-people" },
+    { number: skillEducationRequest.length, title: "Запросы на обучение" },
+    { number: skillEducationInProgress.length, title: "Учатся" },
   ];
 
   return (

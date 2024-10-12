@@ -1,8 +1,8 @@
 .filter {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     /* align-items: start; */
-    background-color: var(--black-opacity);
+    /* background-color: var(--black-opacity); */
     height: 100%;
     width: 100%;
     z-index: 2;

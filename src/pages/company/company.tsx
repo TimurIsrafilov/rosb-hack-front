@@ -1,6 +1,6 @@
 import BarPanel from "../../components/bar-panel/bar-panel";
-import GradePanel1 from "../../components/grade-panel copy/grade-panel";
 import GradePanel from "../../components/grade-panel/grade-panel";
+
 import InfoPanel from "../../components/info-panel/info-panel";
 import LevelPanel from "../../components/level-panel/level-panel";
 import SkillsPanel from "../../components/skills-panel/skills-panel";
@@ -28,7 +28,7 @@ function Company() {
       <div className={styles.company__graphics_container}>
         {/* <GradePanel /> */}
         <div className={styles.company__grade_container}>
-          <GradePanel1 />
+          <GradePanel />
           <p className={styles.company__grade_title}>Грейд/чел</p>
         </div>
 

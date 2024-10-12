@@ -16,9 +16,9 @@ function FilterButton(props: any) {
       className={styles.filter_button}
     >
       <div className={styles.filter_button__title_container}>
-        <div className={styles.filter_button__search_button}>
+        {/* <div className={styles.filter_button__search_button}>
           <svg className={styles.filter_button__search_icon}></svg>
-        </div>
+        </div> */}
         <p className={styles.filter_button__title}>{props.label}</p>
       </div>
 

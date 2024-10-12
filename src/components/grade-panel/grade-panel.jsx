@@ -1,29 +1,16 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { Pie } from "@ant-design/plots";
+import useCalculate from "../../hooks/calculate";
 
-const GradePanel1 = () => {
-  // const data = [
-  //   { type: "Head", value: 3 },
-  //   { type: "Lead", value: 5 },
-  //   { type: "Intern", value: 10 },
-  //   { type: "Senior", value: 19 },
-  //   { type: "Middle", value: 37 },
-  //   { type: "Junior", value: 44 },
-  // ];
+const GradePanel = () => {
+  const { employeesGrade } = useCalculate();
 
   const [data, setData] = useState([]);
   useEffect(() => {
     setTimeout(() => {
-      setData([
-        { type: "Head", value: 3 },
-        { type: "Lead", value: 5 },
-        { type: "Intern", value: 10 },
-        { type: "Senior", value: 19 },
-        { type: "Middle", value: 37 },
-        { type: "Junior", value: 44 },
-      ]);
-    }, 1500);
+      setData(employeesGrade);
+    }, 1000);
   }, []);
 
   const colors = [
@@ -51,8 +38,8 @@ const GradePanel1 = () => {
     },
 
     axis: {
-      x: {line: true, },
-      y: {line: true},
+      x: { line: true },
+      y: { line: true },
     },
 
     legend: {
@@ -70,4 +57,4 @@ const GradePanel1 = () => {
   return <Pie {...config} />;
 };
 
-export default GradePanel1;
+export default GradePanel;

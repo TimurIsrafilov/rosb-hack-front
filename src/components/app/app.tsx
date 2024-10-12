@@ -8,7 +8,7 @@ import Header from "../header/header";
 import { ConfigProvider } from "antd";
 import Filter from "../filter/filter";
 import InfoPanel from "../info-panel/info-panel";
-import GradePanel from "../grade-panel/grade-panel";
+// import GradePanel from "../grade-panel/grade-panel";
 
 import { HOME, COMPANY, TEAM, WORKERS } from "../../utils/constants";
 import Company from "../../pages/company/company";

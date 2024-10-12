@@ -1,9 +1,12 @@
+import Filter from "../../components/filter/filter";
+import InfoPanel from "../../components/info-panel/info-panel";
 import styles from "./team.module.css";
 
 function Team() {
   return (
     <div className={styles.team}>
-      <h2 className={styles.team__title}>Team</h2>
+      <InfoPanel />
+      <Filter />
     </div>
   );
 }

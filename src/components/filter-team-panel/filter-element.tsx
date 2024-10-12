@@ -45,19 +45,16 @@ const FilterElement: React.FC<string[]> = ({ label, menuOptions }) => {
 
   const CheckboxGroup = Checkbox.Group;
 
-  const checkAll = menuOptions?.length === checkedList?.length;
+  const checkAll = menuOptions.length === checkedList.length;
   const indeterminate =
-    checkedList?.length > 0 && checkedList?.length < menuOptions?.length;
+    checkedList.length > 0 && checkedList.length < menuOptions.length;
 
   const onChange = (list: string[]) => {
     setCheckedList(list);
-    console.log(list);
   };
 
   const onCheckAllChange: CheckboxProps["onChange"] = (e) => {
     setCheckedList(e.target.checked ? menuOptions : []);
-    console.log(menuOptions);
-    console.log(e.target.checked);
   };
 
   const [isMenuOpen, setMenuOpen] = useState(false);
