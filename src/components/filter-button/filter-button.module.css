@@ -8,6 +8,7 @@
     padding: 4px 12px 4px 12px;
     background-color: transparent;
     cursor: pointer;
+    min-width: 120px;
 }
 
 .filter_button__title_container {

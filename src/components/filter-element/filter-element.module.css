@@ -22,7 +22,13 @@
     flex-direction: column;
     gap: 6px;
     margin: 0 0 0 6px;
-    padding: 0;
+    padding: 2px;
+    max-height: 500px;
+    width: 115px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    background-color: var(--white-opacity);
+    border-radius: 5px;
 }
 
 .filter_element__checkbox {

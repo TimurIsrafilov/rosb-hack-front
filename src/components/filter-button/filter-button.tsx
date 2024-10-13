@@ -1,14 +1,12 @@
-import { Link, NavLink, useLocation } from "react-router-dom";
-
 import styles from "./filter-button.module.css";
 
-// import open_up_icon from "../../images/open_up_icon.svg";
-// import avatar from "../../images/avatar.svg";
-import { useState } from "react";
+interface FilterButtonProps {
+  handleMenuOpen: () => void;
+  label: string;
+  isMenuOpen: boolean;
+}
 
-function FilterButton(props: any) {
-  // const [isMenuOpen, setMenuOpen] = useState(false);
-
+function FilterButton(props: FilterButtonProps): React.JSX.Element {
   return (
     <button
       type="button"
@@ -16,12 +14,8 @@ function FilterButton(props: any) {
       className={styles.filter_button}
     >
       <div className={styles.filter_button__title_container}>
-        {/* <div className={styles.filter_button__search_button}>
-          <svg className={styles.filter_button__search_icon}></svg>
-        </div> */}
         <p className={styles.filter_button__title}>{props.label}</p>
       </div>
-
       <div className={styles.filter_button__open_button}>
         <svg
           className={

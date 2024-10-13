@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 interface IFilterElement {
   type: string;
-  arr: Array<string>;
+  options: Array<string>;
 }
 
 interface IFilterState {

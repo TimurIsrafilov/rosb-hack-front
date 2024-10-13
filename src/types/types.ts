@@ -11,19 +11,23 @@ export type TypeSkillData = {
 };
 
 export type TypeEmployee = {
-  employee_id: 2;
-  employee_name_surname: "Муравьев Али";
-  employee_position_name: "Бизнес Аналитик";
-  employee_team_name: "Приложение";
-  employee_grade_name: "Senior";
-  employee_bus_factor: true;
-  employee_key: true;
+  employee_id: number;
+  employee_name_surname: string;
+  employee_position_name: string;
+  employee_team_name: string;
+  employee_grade_name: string;
+  employee_bus_factor: boolean;
+  employee_key: boolean;
   skills: Array<TypeSkillData>;
+};
+
+export type TypeEmployees = {
+  employees: Array<TypeEmployee>;
 };
 
 export type TypeFilterValue = {
   type: string;
-  arr: Array<string>;
+  options: Array<string>;
 };
 
 export type TypeFilterValues = Array<TypeFilterValue>;

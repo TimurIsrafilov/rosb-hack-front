@@ -26,7 +26,7 @@ function LevelPanel() {
       /> */}
         <Pie
           data={gradeData}
- 
+          dataKey="value"
           // cx={258}
           // cy={258}
           // innerRadius={65}
@@ -35,7 +35,6 @@ function LevelPanel() {
           // @ts-ignore
           label={`${gradeData.name} + ${gradeData.value}`}
           labelLine={false}
-
         >
           {gradeData.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={colors[index]} />

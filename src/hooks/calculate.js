@@ -1,83 +1,69 @@
 import { useMemo } from "react";
 import { employees } from "../utils/employees";
 
-function useCalculate(props) {
-  const employeeNumber = [];
-  const employeeBusFactor = [];
-  const employeeKey = [];
-  const skillEducationRequest = [];
-  const skillEducationInProgress = [];
-  const employeesAllGrades = useMemo(() => {
-    return [];
-  }, []);
+function useCalculate() {
+  const {
+    employeeNumber,
+    employeeBusFactor,
+    employeeKey,
+    skillEducationRequest,
+    skillEducationInProgress,
+    employeesGrade,
+  } = useMemo(() => {
+    const employeeNumber = [];
+    const employeeBusFactor = [];
+    const employeeKey = [];
+    const skillEducationRequest = [];
+    const skillEducationInProgress = [];
+    const employeesGradeMap = {};
 
-  employees?.map((item) => {
-    employeeNumber.push(item.employee_id);
+    employees?.forEach((item) => {
+      // Собираем все employeeNumber
+      employeeNumber.push(item.employee_id);
 
-    return employeeNumber;
-  });
+      // Фильтрация по employeeBusFactor
+      if (item.employee_bus_factor) {
+        employeeBusFactor.push(item.employee_id);
+      }
 
-  employees?.map((item) => {
-    if (item.employee_bus_factor) {
-      employeeBusFactor.push(item.employee_id);
-    }
+      // Фильтрация по employeeKey
+      if (item.employee_key) {
+        employeeKey.push(item.employee_id);
+      }
 
-    return employeeBusFactor;
-  });
+      // Сборка данных о скиллах
+      item.skills?.forEach((skill) => {
+        if (skill.skill_education_request) {
+          skillEducationRequest.push(skill.skill_name);
+        }
 
-  employees?.map((item) => {
-    if (item.employee_key) {
-      employeeKey.push(item.employee_id);
-    }
+        if (skill.skill_education_in_progress) {
+          skillEducationInProgress.push(item.employee_id);
+        }
+      });
 
-    return employeeKey;
-  });
-
-  employees?.map((item) => {
-    item.skills?.map((skill) => {
-      if (skill.skill_education_request) {
-        skillEducationRequest.push(skill.skill_name);
+      // Подсчет по employeeGrade
+      const grade = item.employee_grade_name;
+      if (grade) {
+        employeesGradeMap[grade] = (employeesGradeMap[grade] || 0) + 1;
       }
     });
 
-    return skillEducationRequest;
-  });
+    // Преобразуем объект employeesGradeMap в массив
+    const employeesGrade = Object.keys(employeesGradeMap).map((key) => ({
+      type: key,
+      value: employeesGradeMap[key],
+    }));
 
-  employees?.map((item) => {
-    item.skills?.map((skill) => {
-      if (skill.skill_education_in_progress) {
-        skillEducationInProgress.push(item.employee_id);
-        return skillEducationInProgress;
-      }
-    });
-
-    return skillEducationInProgress;
-  });
-
-  employees?.map((item) => {
-    employeesAllGrades.push(item.employee_grade_name);
-
-    return employeesAllGrades;
-  });
-
-  function countOccurrences(arr) {
-    const occurrences = arr.reduce((acc, str) => {
-      acc[str] = (acc[str] || 0) + 1;
-      // console.log(acc);
-      return acc;
-    }, {});
-
-    return Object.keys(occurrences).map((key, value) => {
-      return {
-        type: key,
-        value: occurrences[key],
-      };
-    });
-  }
-
-  const employeesGrade = useMemo(() => {
-    return countOccurrences(employeesAllGrades);
-  }, [employeesAllGrades]);
+    return {
+      employeeNumber,
+      employeeBusFactor,
+      employeeKey,
+      skillEducationRequest,
+      skillEducationInProgress,
+      employeesGrade,
+    };
+  }, [employees]);
 
   return {
     employeeNumber,

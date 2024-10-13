@@ -9,8 +9,8 @@ function Team() {
       <InfoPanel />
       <Filter />
       <div className={styles.team__radar_container}>
-      <CustomRadar type={"Hard"}/>
-      <CustomRadar type={"Soft"}/>
+        <CustomRadar type={"Hard"} />
+        <CustomRadar type={"Soft"} />
       </div>
     </div>
   );

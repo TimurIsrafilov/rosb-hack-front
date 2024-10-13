@@ -6,103 +6,123 @@ import { useAppSelector } from "./hooks";
 function useChoose() {
   const filterValue = useAppSelector(getFilterValue);
 
-  const [newEmployees, setNewEmployees] = useState(employees); // начальное значение
+  const [chosenEmployees, setChosenEmployees] = useState(employees); // начальное значение
 
   useEffect(() => {
     let filteredEmployees = employees;
 
     // Проверка, есть ли пустые фильтры
-    const hasEmptyFilter = filterValue.some((filter) => filter.arr.length === 0);
+    const hasEmptyFilter = filterValue.some(
+      (filter) => filter.options.length === 0
+    );
 
-    // Если хотя бы один фильтр пустой, устанавливаем newEmployees как []
+    // Если хотя бы один фильтр пустой, устанавливаем chosenEmployees как []
     if (hasEmptyFilter) {
-      setNewEmployees([]);
+      setChosenEmployees([]);
       return; // Выходим из эффекта, чтобы не продолжать фильтрацию
     }
 
     // Фильтрация по Команде
     const teamFilter = filterValue.find((i) => i.type === "Команда");
-    if (teamFilter && teamFilter.arr.length > 0) {
+    if (teamFilter && teamFilter.options.length > 0) {
       filteredEmployees = filteredEmployees.filter((employee) =>
-        teamFilter.arr.includes(employee.employee_team_name)
+        teamFilter.options.includes(employee.employee_team_name)
       );
     }
 
     // Фильтрация по Специальности
     const specialtyFilter = filterValue.find((i) => i.type === "Специальность");
-    if (specialtyFilter && specialtyFilter.arr.length > 0) {
+    if (specialtyFilter && specialtyFilter.options.length > 0) {
       filteredEmployees = filteredEmployees.filter((employee) =>
-        specialtyFilter.arr.includes(employee.employee_position_name)
+        specialtyFilter.options.includes(employee.employee_position_name)
       );
     }
-
     // Фильтрация по Грейду
     const gradeFilter = filterValue.find((i) => i.type === "Грейд");
-    if (gradeFilter && gradeFilter.arr.length > 0) {
+    if (gradeFilter && gradeFilter.options.length > 0) {
       filteredEmployees = filteredEmployees.filter((employee) =>
-        gradeFilter.arr.includes(employee.employee_grade_name)
+        gradeFilter.options.includes(employee.employee_grade_name)
       );
     }
 
     // Фильтрация по Навыкам
     const skillFilter = filterValue.find((i) => i.type === "Навык");
-    if (skillFilter && skillFilter.arr.length > 0) {
-      filteredEmployees = filteredEmployees.filter((employee) =>
-        employee.skills.some((skill) =>
-          skillFilter.arr.includes(skill.skill_name)
-        )
-      );
+    if (skillFilter && skillFilter.options.length > 0) {
+      filteredEmployees = filteredEmployees
+        .map((employee) => {
+          const filteredSkills = employee.skills.filter((skill) =>
+            skillFilter.options.includes(skill.skill_name)
+          );
+
+          if (filteredSkills.length > 0) {
+            return { ...employee, skills: filteredSkills };
+          }
+        })
+        .filter((employee) => employee);
     }
 
     // Фильтрация по Компетенциям
     const competencyFilter = filterValue.find((i) => i.type === "Компетенция");
-    if (competencyFilter && competencyFilter.arr.length > 0) {
-      filteredEmployees = filteredEmployees.filter((employee) =>
-        employee.skills.some((skill) =>
-          competencyFilter.arr.includes(skill.skill_competence_name)
-        )
-      );
+    if (competencyFilter && competencyFilter.options.length > 0) {
+      filteredEmployees = filteredEmployees
+        .map((employee) => {
+          const filteredSkills = employee.skills.filter((skill) =>
+            competencyFilter.options.includes(skill.skill_competence_name)
+          );
+
+          if (filteredSkills.length > 0) {
+            return { ...employee, skills: filteredSkills };
+          }
+        })
+        .filter((employee) => employee);
     }
 
     // Фильтрация по Домену
     const domainFilter = filterValue.find((i) => i.type === "Домен");
-    if (domainFilter && domainFilter.arr.length > 0) {
-      filteredEmployees = filteredEmployees.filter((employee) =>
-        employee.skills.some((skill) =>
-          domainFilter.arr.includes(skill.skill_domain_name)
-        )
-      );
+    if (domainFilter && domainFilter.options.length > 0) {
+      filteredEmployees = filteredEmployees
+        .map((employee) => {
+          const filteredSkills = employee.skills.filter((skill) =>
+            domainFilter.options.includes(skill.skill_domain_name)
+          );
+
+          if (filteredSkills.length > 0) {
+            return { ...employee, skills: filteredSkills };
+          }
+        })
+        .filter((employee) => employee);
     }
 
     // Фильтрация по Hard / Soft
     const hardSoftFilter = filterValue.find((i) => i.type === "Hard / Soft");
-    if (hardSoftFilter && hardSoftFilter.arr.length > 0) {
-      filteredEmployees = filteredEmployees.filter((employee) =>
-        employee.skills.some((skill) =>
-          hardSoftFilter.arr.includes(skill.skill_hard_soft_type)
-        )
-      );
+    if (hardSoftFilter && hardSoftFilter.options.length > 0) {
+      filteredEmployees = filteredEmployees
+        .map((employee) => {
+          const filteredSkills = employee.skills.filter((skill) =>
+            hardSoftFilter.options.includes(skill.skill_hard_soft_type)
+          );
+
+          if (filteredSkills.length > 0) {
+            return { ...employee, skills: filteredSkills };
+          }
+        })
+        .filter((employee) => employee);
     }
 
     // Фильтрация по Сотрудникам
     const employeeFilter = filterValue.find((i) => i.type === "Сотрудники");
-    if (employeeFilter && employeeFilter.arr.length > 0) {
+    if (employeeFilter && employeeFilter.options.length > 0) {
       filteredEmployees = filteredEmployees.filter((employee) =>
-        employeeFilter.arr.includes(employee.employee_name_surname)
+        employeeFilter.options.includes(employee.employee_name_surname)
       );
     }
 
-    setNewEmployees(filteredEmployees); // Обновляем состояние с отфильтрованными сотрудниками
+    setChosenEmployees(filteredEmployees); // Обновляем состояние с отфильтрованными сотрудниками
   }, [filterValue]); // Следим за изменениями в filterValue
 
   return {
-    newEmployees,
+    chosenEmployees,
   };
 }
 
 export default useChoose;
-
-
-
-
-

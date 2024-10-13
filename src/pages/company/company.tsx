@@ -7,31 +7,15 @@ import SkillsPanel from "../../components/skills-panel/skills-panel";
 import WorkersPanel from "../../components/workers-panel/workers-panel";
 import styles from "./company.module.css";
 
-function Company() {
-  const skillsData = {
-    title: "Проблемные навыки",
-    soft_skills: {
-      title: "Soft skill",
-      item: "Делегирование",
-      value: 27,
-    },
-    hard_skills: {
-      title: "Hard skill",
-      item: "Навыки работы ",
-      value: 20,
-    },
-  };
-
+function Company(): React.JSX.Element {
   return (
     <div className={styles.company}>
       <InfoPanel />
       <div className={styles.company__graphics_container}>
-        {/* <GradePanel /> */}
         <div className={styles.company__grade_container}>
           <GradePanel />
           <p className={styles.company__grade_title}>Грейд/чел</p>
         </div>
-
         <LevelPanel />
         <div className={styles.company__skills_container}>
           <SkillsPanel />
@@ -40,7 +24,6 @@ function Company() {
       </div>
       <div className={styles.company__bar_container}>
         <BarPanel />
-        {/* <GradePanel1 /> */}
       </div>
     </div>
   );

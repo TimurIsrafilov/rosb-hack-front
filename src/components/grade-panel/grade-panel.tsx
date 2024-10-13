@@ -1,37 +1,37 @@
-import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
+import { useEffect, useState } from "react";
+
 import { Pie } from "@ant-design/plots";
+import { PieConfig } from "@ant-design/plots/lib/components/pie"; // Тип для конфигурации Pie
+
 import useCalculate from "../../hooks/calculate";
 
-const GradePanel = () => {
+import { gradeColors } from "../../utils/mockData";
+
+interface GradeData {
+  type: string;
+  value: number;
+}
+
+const GradePanel: React.FC = () => {
   const { employeesGrade } = useCalculate();
 
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<GradeData[]>([]);
+
   useEffect(() => {
     setTimeout(() => {
       setData(employeesGrade);
     }, 1000);
-  }, []);
+  }, [employeesGrade]);
 
-  const colors = [
-    "rgba(169, 197, 218, 1)",
-    "rgba(161, 227, 203, 1)",
-    "rgba(177, 227, 255, 1)",
-    "rgba(186, 236, 189, 1)",
-    "rgba(149, 163, 252, 1)",
-    "rgba(66, 67, 75, 1)",
-  ];
-
-  // ({ data, onReady }) => {
-  const config = {
+  const config: PieConfig = {
     data,
-    scale: { color: { palette: colors } },
+    scale: { color: { palette: gradeColors } },
     angleField: "value",
     colorField: "type",
     radius: 0.7,
     label: {
-      text: (d) => `${d.type}\n ${d.value}`,
-      // position: 'spider',
+      text: (d: GradeData) => `${d.type}\n ${d.value}`,
+
       position: "surround",
 
       rowPadding: 5,
@@ -49,11 +49,8 @@ const GradePanel = () => {
         rowPadding: 5,
       },
     },
-    // onReady,
   };
-
-  // };
-
+  //@ts-ignore - TS decides that type is too complex to compute
   return <Pie {...config} />;
 };
 

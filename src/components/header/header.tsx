@@ -1,23 +1,14 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 
+import { Button } from "antd";
+
 import styles from "./header.module.css";
 
-import logo from "../../images/logo.svg";
-import avatar from "../../images/avatar.svg";
-
-import { Button } from "antd";
-import { useState } from "react";
-
-function Header() {
+function Header(): React.JSX.Element {
   const location = useLocation();
   const currentPath = location.pathname;
   const pathTeamCreate = currentPath === "/team-create" ? true : false;
 
-  // const [isButtonActive, setButtonActive] = useState(false);
-
-  // const handleButtonActive = () => {
-  //   setButtonActive(!isButtonActive);
-  // };
   return (
     <div className={styles.header}>
       <div className={styles.header__main_container}>
@@ -28,7 +19,6 @@ function Header() {
               <Button
                 className={styles.header__button}
                 type={isActive ? "primary" : "text"}
-                // onClick={handleButtonActive}
                 shape="round"
               >
                 Навыки команды
@@ -40,7 +30,6 @@ function Header() {
               <Button
                 className={styles.header__button}
                 type={isActive ? "primary" : "text"}
-                // onClick={handleButtonActive}
                 shape="round"
               >
                 Создание новой команды
@@ -81,10 +70,7 @@ function Header() {
                 </p>
               )}
             </NavLink>
-            <NavLink
-              to="/team"
-              className={styles.header__menu_item_link}
-            >
+            <NavLink to="/team" className={styles.header__menu_item_link}>
               {({ isActive }) => (
                 <p
                   className={`${styles.header__menu_item}   ${
@@ -95,10 +81,7 @@ function Header() {
                 </p>
               )}
             </NavLink>
-            <NavLink
-              to="/workers"
-              className={styles.header__menu_item_link}
-            >
+            <NavLink to="/workers" className={styles.header__menu_item_link}>
               {({ isActive }) => (
                 <p
                   className={`${styles.header__menu_item}   ${

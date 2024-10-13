@@ -1,79 +1,39 @@
-// import React from "react";
-// import { Checkbox } from "antd";
-// import type { GetProp } from "antd";
+import { useState } from "react";
+import { Checkbox, CheckboxProps } from "antd";
+
+import { useAppDispatch } from "../../hooks/hooks";
 
 import styles from "./filter-element.module.css";
 
-// const onChange: GetProp<typeof Checkbox.Group, "onChange"> = (
-//   checkedValues
-// ) => {
-//   console.log("checked = ", checkedValues);
-// };
-
-// const plainOptions = ["Apple", "Pear", "Orange"];
-
-// const FilterItem2: React.FC = () => (
-//   <>
-//     <Checkbox.Group
-//       options={plainOptions}
-//       onChange={onChange}
-//       className={styles.ant_checkbox_group}
-//     />
-//   </>
-// );
-
-// export default FilterItem2;
-
-import React, { useState } from "react";
-import { Checkbox, Divider } from "antd";
-import type { CheckboxProps } from "antd";
 import FilterButton from "../filter-button/filter-button";
-import { ignore } from "antd/es/theme/useToken";
-import { getFilterValue, setFilterValue } from "../../services/filter/reducer";
-import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 
-// const CheckboxGroup = Checkbox.Group;
+import { setFilterValue } from "../../services/filter/reducer";
 
-// const plainOptions = ["Apple", "Pear", "Orange"];
-// const defaultCheckedList = ['Apple', 'Orange'];
+import { TypeFilterValue } from "../../types/types";
 
-// @ts-ignore
-const FilterElement: React.FC<string[]> = ({ label, menuOptions }) => {
+const FilterElement: React.FC<TypeFilterValue> = (props) => {
   const dispatch = useAppDispatch();
 
-  const filterValue = useAppSelector(getFilterValue);
-
-  // const x = filterValue.length !== 0 ? true : false;
-
-  const [isCheckBoxOpen, setCheckBoxOpen] = useState(false);
-
-  const defaultCheckedList = label !== "Команда" ? menuOptions : [];
-
-  const [checkedList, setCheckedList] = useState<string[]>(defaultCheckedList);
+  const [checkedList, setCheckedList] = useState<string[]>(props.options);
 
   const CheckboxGroup = Checkbox.Group;
 
-  const checkAll = menuOptions?.length === checkedList?.length;
+  const checkAll = props.options?.length === checkedList?.length;
   const indeterminate =
-    checkedList?.length > 0 && checkedList?.length < menuOptions?.length;
+    checkedList?.length > 0 && checkedList?.length < props.options?.length;
 
   const onChange = (list: string[]) => {
     setCheckedList(list);
-    // console.log(list);
 
-    setCheckBoxOpen(true)
-    dispatch(setFilterValue({ type: label, arr: list }));
+    dispatch(setFilterValue({ type: props.type, options: list }));
   };
 
   const onCheckAllChange: CheckboxProps["onChange"] = (e) => {
-    setCheckedList(e.target.checked ? menuOptions : []);
-    // console.log(menuOptions);
-    // console.log(e.target.checked);
+    setCheckedList(e.target.checked ? props.options : []);
 
-    setCheckBoxOpen(true)
     e.target.checked
-      ? dispatch(setFilterValue({ type: label, arr: menuOptions }))
-      : dispatch(setFilterValue({ type: label, arr: [] }));
+      ? dispatch(setFilterValue({ type: props.type, options: props.options }))
+      : dispatch(setFilterValue({ type: props.type, options: [] }));
   };
 
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -81,15 +41,12 @@ const FilterElement: React.FC<string[]> = ({ label, menuOptions }) => {
     setMenuOpen(!isMenuOpen);
   };
 
-  // const y = isMenuOpen || x || isCheckBoxOpen ? true : false;
-
   return (
     <div className={styles.filter_element}>
-      {/* <h3 className={styles.filter_element__title}>{label}</h3> */}
       <FilterButton
         handleMenuOpen={handleMenuOpen}
         isMenuOpen={isMenuOpen}
-        label={label}
+        label={props.type}
       />
       {isMenuOpen && (
         <div className={styles.filter_element__container}>
@@ -101,7 +58,7 @@ const FilterElement: React.FC<string[]> = ({ label, menuOptions }) => {
             Все
           </Checkbox>
           <CheckboxGroup
-            options={menuOptions}
+            options={props.options}
             value={checkedList}
             onChange={onChange}
             className={styles.filter_element__checkbox}
@@ -113,39 +70,3 @@ const FilterElement: React.FC<string[]> = ({ label, menuOptions }) => {
 };
 
 export default FilterElement;
-
-// import React, { useState } from 'react';
-// import { Checkbox, Divider } from 'antd';
-// import type { CheckboxProps } from 'antd';
-
-// const CheckboxGroup = Checkbox.Group;
-
-// const plainOptions = ['Apple', 'Pear', 'Orange'];
-// const defaultCheckedList = ['Apple', 'Orange'];
-
-// const App: React.FC = () => {
-//   const [checkedList, setCheckedList] = useState<string[]>(defaultCheckedList);
-
-//   const checkAll = plainOptions.length === checkedList.length;
-//   const indeterminate = checkedList.length > 0 && checkedList.length < plainOptions.length;
-
-//   const onChange = (list: string[]) => {
-//     setCheckedList(list);
-//   };
-
-//   const onCheckAllChange: CheckboxProps['onChange'] = (e) => {
-//     setCheckedList(e.target.checked ? plainOptions : []);
-//   };
-
-//   return (
-//     <>
-//       <Checkbox indeterminate={indeterminate} onChange={onCheckAllChange} checked={checkAll}>
-//         Check all
-//       </Checkbox>
-//       <Divider />
-//       <CheckboxGroup options={plainOptions} value={checkedList} onChange={onChange} />
-//     </>
-//   );
-// };
-
-// export default App;
