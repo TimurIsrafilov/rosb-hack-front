@@ -22,9 +22,9 @@ import { useAppDispatch } from "../../hooks/hooks";
 function App() {
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    dispatch(loadEmployees());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(loadEmployees());
+  // }, [dispatch]);
 
   return (
     <div className={styles.app}>

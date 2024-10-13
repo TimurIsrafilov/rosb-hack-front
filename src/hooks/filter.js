@@ -1,7 +1,12 @@
 import { useMemo } from "react";
 import { employees } from "../utils/employees";
+import { getFilterValue } from "../services/filter/reducer";
+import { useAppSelector } from "./hooks";
+import useChoose from "./choose";
 
 function useFilter(props) {
+  // const filterValue = useAppSelector(getFilterValue);
+
   const filterData = [];
 
   const teams = [];
@@ -16,6 +21,9 @@ function useFilter(props) {
   const skillNames = [];
   const filterSkillNameData = [];
 
+
+
+
   const skillCompetences = [];
   const filterSkillCompetenceData = [];
 
@@ -25,61 +33,38 @@ function useFilter(props) {
   const employeesTotal = [];
   const filterEmployeesTotalData = [];
 
-  // const filteredEmployees = []
 
+  // const {filteredEmployees} = useChoose()
 
-  // const filteredEmployees = employees.find((i) => i === item.grade)
+      // const {newEmployees} = useChoose()
 
-  // const filteredData = []
+  // const newEmployees = [ ...employees ];
 
+  // const x = filterValue.find((i) => i.type === "Команда");
+  // const filteredTeamData = x ? x.arr : null;
+  // console.log(x);
 
-  // employees?.map((item) => {
-  //   if (uniqueGradesOptions.find((i) => i === item.employee_grade_name)) {
-  //     return companyStructure;
-  //   } else {
-  //     uniqueGradesOptions.push(item.grade);
+  // // for (let i = newEmployees?.length - 1; i >= 0; i--) {
+  //   for (let i = newEmployees.length; i--;) {
+  //   if (!filteredTeamData?.includes(newEmployees[i].employee_team_name)) {
+  //     newEmployees?.splice(i, 1); // Удаляем элемент, если его значение отсутствует в validValues
+ 
   //   }
-  //   return uniqueGradesOptions;
-  // });
-
-
-  // employees?.forEach((obj) => {
-  //   obj.skills.forEach((value) => {
-  //     if (!skillNames.includes(value.skill_name)) {
-  //       skillNames.push(value.skill_name);
-  //       filterSkillNameData.push({ name: "Навык", options: skillNames });
-  //     }
-
-  //     if (filterSkillNameData.length < 2) {
-  //       filterData.push(filterSkillNameData[0]);
-  //     }
-  //   });
-  // });
-
-
-  employees?.forEach((item) => {
-    if (!teams.includes(item.employee_team_name)) {
-      teams.push(item.employee_team_name);
-      filterTeamData.push({ name: "Команда", options: teams });
-    }
-    if (filterTeamData.length < 2) {
-      filterData.push(filterTeamData[0]);
-    }
-  });
-
+  //   // console.log(newEmployees);
+  // }
+  // console.log(newEmployees);
 
   /////////////////////
 
-  employees?.forEach((item) => {
-    if (!teams.includes(item.employee_team_name)) {
-      teams.push(item.employee_team_name);
-      filterTeamData.push({ name: "Команда", options: teams });
-    }
-    if (filterTeamData.length < 2) {
-      filterData.push(filterTeamData[0]);
-    }
-  });
-
+  // employees?.forEach((item) => {
+  //   if (!teams.includes(item.employee_team_name)) {
+  //     teams.push(item.employee_team_name);
+  //     filterTeamData.push({ name: "Команда", options: teams });
+  //   }
+  //   if (filterTeamData.length < 2) {
+  //     filterData.push(filterTeamData[0]);
+  //   }
+  // });
 
   employees?.forEach((item) => {
     if (!teams.includes(item.employee_team_name)) {

@@ -1,1 +1,6 @@
 .team {}
+
+
+.team__radar_container {
+    display: flex;
+}

@@ -29,6 +29,8 @@ import { Checkbox, Divider } from "antd";
 import type { CheckboxProps } from "antd";
 import FilterButton from "../filter-button/filter-button";
 import { ignore } from "antd/es/theme/useToken";
+import { getFilterValue, setFilterValue } from "../../services/filter/reducer";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 
 // const CheckboxGroup = Checkbox.Group;
 
@@ -37,6 +39,12 @@ import { ignore } from "antd/es/theme/useToken";
 
 // @ts-ignore
 const FilterElement: React.FC<string[]> = ({ label, menuOptions }) => {
+  const dispatch = useAppDispatch();
+
+  const filterValue = useAppSelector(getFilterValue);
+
+  // const x = filterValue.length !== 0 ? true : false;
+
   const [isCheckBoxOpen, setCheckBoxOpen] = useState(false);
 
   const defaultCheckedList = label !== "Команда" ? menuOptions : [];
@@ -52,18 +60,28 @@ const FilterElement: React.FC<string[]> = ({ label, menuOptions }) => {
   const onChange = (list: string[]) => {
     setCheckedList(list);
     console.log(list);
+
+    setCheckBoxOpen(true)
+    dispatch(setFilterValue({ type: label, arr: list }));
   };
 
   const onCheckAllChange: CheckboxProps["onChange"] = (e) => {
     setCheckedList(e.target.checked ? menuOptions : []);
     console.log(menuOptions);
     console.log(e.target.checked);
+
+    setCheckBoxOpen(true)
+    e.target.checked
+      ? dispatch(setFilterValue({ type: label, arr: menuOptions }))
+      : dispatch(setFilterValue({ type: label, arr: [] }));
   };
 
   const [isMenuOpen, setMenuOpen] = useState(false);
   const handleMenuOpen = () => {
     setMenuOpen(!isMenuOpen);
   };
+
+  // const y = isMenuOpen || x || isCheckBoxOpen ? true : false;
 
   return (
     <div className={styles.filter_element}>
