@@ -70,10 +70,10 @@ const CustomRadar = (props) => {
         return (employeesHardSkills = Object.values(uniqueSubjects));
         //   console.log(uniqueSubjects);
       }
-      console.log(employeesHardSkills);
+      // console.log(employeesHardSkills);
     });
   });
-  console.log(employeesHardSkills);
+  // console.log(employeesHardSkills);
   // console.log(uniqueSubjects);
 
   // const uniqueSubjects = {};

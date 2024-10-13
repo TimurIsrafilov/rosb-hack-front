@@ -45,7 +45,7 @@ const items: MenuItem[] = [
 
 const FilterItem: React.FC = () => {
   const onClick: MenuProps["onClick"] = (e) => {
-    console.log("click ", e);
+    // console.log("click ", e);
   };
 
   return (

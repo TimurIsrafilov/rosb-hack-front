@@ -1,106 +1,108 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { employees } from "../utils/employees";
 import { getFilterValue } from "../services/filter/reducer";
 import { useAppSelector } from "./hooks";
 
-function useChoose(props) {
+function useChoose() {
   const filterValue = useAppSelector(getFilterValue);
 
-  const [newEmployees, setNewEmployees] = useState();
+  const [newEmployees, setNewEmployees] = useState(employees); // начальное значение
 
-  useEffect(() => {setNewEmployees(employees)}, []);
+  useEffect(() => {
+    let filteredEmployees = employees;
 
-  const typeTeam = filterValue.find((i) => i.type === "Команда");
-  const filteredTeamData = typeTeam ? typeTeam.arr : null;
+    // Проверка, есть ли пустые фильтры
+    const hasEmptyFilter = filterValue.some((filter) => filter.arr.length === 0);
 
-  // for (let i = newEmployees.length; i--; ) {
-  //   if (!filteredTeamData?.includes(newEmployees[i].employee_team_name)) {
-  //     newEmployees?.splice(i, 1);
-  //   }
-  //   // console.log(newEmployees);
-  // }
-
-  // console.log(newEmployees);
-
-  const filteredTeams = useMemo(() => {
-    // Создаём копию массива, чтобы не мутировать оригинальный
-    // const employeesCopy = [...employees];
-
-    for (let i = newEmployees?.length; i--; ) {
-      // Проверяем, содержится ли имя команды в filteredTeamData
-      if (!filteredTeamData?.includes(newEmployees[i].employee_team_name)) {
-        // Удаляем элемент, если его значение отсутствует в filteredTeamData
-        newEmployees.splice(i, 1);
-
-        // setNewEmployees(newEmployees);
-        // console.log(newEmployees);
-      }
+    // Если хотя бы один фильтр пустой, устанавливаем newEmployees как []
+    if (hasEmptyFilter) {
+      setNewEmployees([]);
+      return; // Выходим из эффекта, чтобы не продолжать фильтрацию
     }
-    setNewEmployees(newEmployees);
-    console.log(newEmployees);
-    // return newEmployees; // Возвращаем отфильтрованный массив
-  }, [filteredTeamData]); // Зависимости
 
-  console.log(newEmployees);
-
-  ///////////////////////////////////////////
-
-  const typeGrade = filterValue.find((i) => i.type === "Грейд");
-  const filteredGradeData = typeGrade ? typeGrade.arr : null;
-
-  const filteredGrades = useMemo(() => {
-    // Создаём копию массива, чтобы не мутировать оригинальный
-    // const employeesCopy = [...employees];
-
-    for (let i = newEmployees?.length; i--; ) {
-      // Проверяем, содержится ли имя команды в filteredTeamData
-      if (!filteredGradeData?.includes(newEmployees[i].employee_grade_name)) {
-        // Удаляем элемент, если его значение отсутствует в filteredTeamData
-        newEmployees.splice(i, 1);
-        // console.log(newEmployees);
-
-        // setNewEmployees(newEmployees);
-        // console.log(newEmployees);
-      }
+    // Фильтрация по Команде
+    const teamFilter = filterValue.find((i) => i.type === "Команда");
+    if (teamFilter && teamFilter.arr.length > 0) {
+      filteredEmployees = filteredEmployees.filter((employee) =>
+        teamFilter.arr.includes(employee.employee_team_name)
+      );
     }
-    setNewEmployees(newEmployees);
-    console.log(newEmployees);
 
-    // return newEmployees; // Возвращаем отфильтрованный массив
-  }, [filteredGradeData]); // Зависимости
+    // Фильтрация по Специальности
+    const specialtyFilter = filterValue.find((i) => i.type === "Специальность");
+    if (specialtyFilter && specialtyFilter.arr.length > 0) {
+      filteredEmployees = filteredEmployees.filter((employee) =>
+        specialtyFilter.arr.includes(employee.employee_position_name)
+      );
+    }
 
-  console.log(newEmployees);
+    // Фильтрация по Грейду
+    const gradeFilter = filterValue.find((i) => i.type === "Грейд");
+    if (gradeFilter && gradeFilter.arr.length > 0) {
+      filteredEmployees = filteredEmployees.filter((employee) =>
+        gradeFilter.arr.includes(employee.employee_grade_name)
+      );
+    }
 
-  // for (let i = newEmployees.length; i--; ) {
-  //   if (!filteredGradeData?.includes(newEmployees[i].employee_grade_name)) {
-  //     newEmployees?.splice(i, 1);
-  //   }
-  //   console.log(newEmployees);
-  //   return newEmployees;
-  // }
+    // Фильтрация по Навыкам
+    const skillFilter = filterValue.find((i) => i.type === "Навык");
+    if (skillFilter && skillFilter.arr.length > 0) {
+      filteredEmployees = filteredEmployees.filter((employee) =>
+        employee.skills.some((skill) =>
+          skillFilter.arr.includes(skill.skill_name)
+        )
+      );
+    }
 
-  // console.log(newEmployees);
-  ///////////////////////////////////////////
+    // Фильтрация по Компетенциям
+    const competencyFilter = filterValue.find((i) => i.type === "Компетенция");
+    if (competencyFilter && competencyFilter.arr.length > 0) {
+      filteredEmployees = filteredEmployees.filter((employee) =>
+        employee.skills.some((skill) =>
+          competencyFilter.arr.includes(skill.skill_competence_name)
+        )
+      );
+    }
 
-  // const typePosition = filterValue.find((i) => i.type === "Команда");
-  // const filteredPositionData = typePosition ? typePosition.arr : null;
+    // Фильтрация по Домену
+    const domainFilter = filterValue.find((i) => i.type === "Домен");
+    if (domainFilter && domainFilter.arr.length > 0) {
+      filteredEmployees = filteredEmployees.filter((employee) =>
+        employee.skills.some((skill) =>
+          domainFilter.arr.includes(skill.skill_domain_name)
+        )
+      );
+    }
 
-  // for (let i = newEmployees.length; i--; ) {
-  //   if (!filteredPositionData?.includes(newEmployees[i].employee_position_name)) {
-  //     newEmployees?.splice(i, 1);
-  //   }
-  //   console.log(newEmployees);
-  // }
+    // Фильтрация по Hard / Soft
+    const hardSoftFilter = filterValue.find((i) => i.type === "Hard / Soft");
+    if (hardSoftFilter && hardSoftFilter.arr.length > 0) {
+      filteredEmployees = filteredEmployees.filter((employee) =>
+        employee.skills.some((skill) =>
+          hardSoftFilter.arr.includes(skill.skill_hard_soft_type)
+        )
+      );
+    }
 
-  // console.log(newEmployees);
-  // ///////////////////////////////////////////
+    // Фильтрация по Сотрудникам
+    const employeeFilter = filterValue.find((i) => i.type === "Сотрудники");
+    if (employeeFilter && employeeFilter.arr.length > 0) {
+      filteredEmployees = filteredEmployees.filter((employee) =>
+        employeeFilter.arr.includes(employee.employee_name_surname)
+      );
+    }
+
+    setNewEmployees(filteredEmployees); // Обновляем состояние с отфильтрованными сотрудниками
+  }, [filterValue]); // Следим за изменениями в filterValue
 
   return {
     newEmployees,
-    // filteredEmployees,
-    // filteredGrades,
-    // filteredTeams,
   };
 }
 
 export default useChoose;
+
+
+
+
+

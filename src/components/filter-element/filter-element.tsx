@@ -59,7 +59,7 @@ const FilterElement: React.FC<string[]> = ({ label, menuOptions }) => {
 
   const onChange = (list: string[]) => {
     setCheckedList(list);
-    console.log(list);
+    // console.log(list);
 
     setCheckBoxOpen(true)
     dispatch(setFilterValue({ type: label, arr: list }));
@@ -67,8 +67,8 @@ const FilterElement: React.FC<string[]> = ({ label, menuOptions }) => {
 
   const onCheckAllChange: CheckboxProps["onChange"] = (e) => {
     setCheckedList(e.target.checked ? menuOptions : []);
-    console.log(menuOptions);
-    console.log(e.target.checked);
+    // console.log(menuOptions);
+    // console.log(e.target.checked);
 
     setCheckBoxOpen(true)
     e.target.checked

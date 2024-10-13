@@ -10,7 +10,7 @@ export type TypeSkillData = {
   skill_education_in_progress: boolean;
 };
 
-export type TypeSkillEmployee = {
+export type TypeEmployee = {
   employee_id: 2;
   employee_name_surname: "Муравьев Али";
   employee_position_name: "Бизнес Аналитик";
@@ -20,3 +20,10 @@ export type TypeSkillEmployee = {
   employee_key: true;
   skills: Array<TypeSkillData>;
 };
+
+export type TypeFilterValue = {
+  type: string;
+  arr: Array<string>;
+};
+
+export type TypeFilterValues = Array<TypeFilterValue>;

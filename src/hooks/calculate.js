@@ -63,7 +63,7 @@ function useCalculate(props) {
   function countOccurrences(arr) {
     const occurrences = arr.reduce((acc, str) => {
       acc[str] = (acc[str] || 0) + 1;
-      console.log(acc);
+      // console.log(acc);
       return acc;
     }, {});
 
