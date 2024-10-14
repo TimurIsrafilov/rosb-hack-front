@@ -1,8 +1,12 @@
-import { getFilterValue } from "../services/filter/reducer";
-import { employees } from "../utils/employees";
+import { getEmployees } from "../services/employees/reducer";
+import { employees as employeesMock } from "../utils/employees";
 import { useAppSelector } from "./hooks";
 
 function useFilter() {
+  const employeesFromBack = useAppSelector(getEmployees);
+
+  const employees = employeesMock || employeesFromBack;
+
   const filterData = [];
 
   const teams = [];
@@ -54,11 +58,11 @@ function useFilter() {
   filterData.push({ type: "Команда", options: teams });
   filterData.push({ type: "Специальность", options: positions });
   filterData.push({ type: "Грейд", options: grades });
+  filterData.push({ type: "Сотрудники", options: employeesTotal });
   filterData.push({ type: "Hard / Soft", options: ["Hard", "Soft"] });
   filterData.push({ type: "Домен", options: skillDomains });
   filterData.push({ type: "Компетенция", options: skillCompetences });
   filterData.push({ type: "Навык", options: skillNames });
-  filterData.push({ type: "Сотрудники", options: employeesTotal });
 
   return {
     filterData,

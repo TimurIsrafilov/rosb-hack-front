@@ -1,20 +1,8 @@
 import styles from "./skills-panel.module.css";
 
-function SkillsPanel() {
-  const skillsData = {
-    title: "Проблемные навыки",
-    soft_skills: {
-      title: "Soft skill",
-      item: "Делегирование",
-      value: 27,
-    },
-    hard_skills: {
-      title: "Hard skill",
-      item: "Навыки работы ",
-      value: 20,
-    },
-  };
+import { skillsData } from "./../../utils/mockData";
 
+function SkillsPanel(): React.JSX.Element {
   return (
     <div className={styles.skills_panel}>
       <h3 className={styles.skills_panel__title}>{skillsData.title}</h3>

@@ -1,4 +1,4 @@
-import { BASE_URL, EMPLOEES } from "./constants";
+import { BASE_URL, EMPLOYEES } from "./constants";
 
 const getResponse = (res) => {
   if (!res.ok) {
@@ -9,7 +9,7 @@ const getResponse = (res) => {
 
 
 export const getEmployeesInfo = () => {
-  return fetch(`${BASE_URL}${EMPLOEES}`, {
+  return fetch(`${BASE_URL}${EMPLOYEES}`, {
     method: "GET",
     headers: {
       Accept: "application/json",

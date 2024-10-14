@@ -1,6 +1,4 @@
-import useChoose from "../../hooks/choose";
-import styles from "./radar-employee.module.css";
-
+import { v4 as uuidv4 } from "uuid";
 
 import {
   Radar,
@@ -11,39 +9,44 @@ import {
   PolarRadiusAxis,
 } from "recharts";
 
-
+import useChoose from "../../hooks/choose";
 
 const RadarEmployee = (props) => {
-  // static demoUrl = 'https://codesandbox.io/p/sandbox/radar-chart-specified-domain-l68xry';
-
   const { chosenEmployees } = useChoose();
+  const skillMap = {};
+  const x = [];
 
+  chosenEmployees.forEach((employee) => {
+    employee.skills.forEach((skill) => {
+      if (skill.skill_hard_soft_type === props.type) {
+        const skillName = skill.skill_name;
 
+        if (!skillMap[skillName]) {
+          skillMap[skillName] = { skill_name: skillName };
+        }
 
-const skillMap = {};
+        skillMap[skillName][employee.employee_id] = skill.skill_estimation;
+        const exists = x.some((item) => item.id === employee.employee_id);
 
-chosenEmployees.forEach(employee => {
-  employee.skills.forEach(skill => {
+        function getRandomNumber() {
+          return Math.floor(Math.random() * 255);
+        }
+        const randomNum1 = getRandomNumber();
+        const randomNum2 = getRandomNumber();
+        const randomNum3 = getRandomNumber();
 
-    if (skill.skill_hard_soft_type !== props.type) {
-
-
-    const skillName = skill.skill_name;
-    
-    if (!skillMap[skillName] ) {
-      skillMap[skillName] = { skill_name: skillName };
-    }
-  
-    skillMap[skillName][employee.employee_id] = skill.skill_estimation;}
+        if (!exists) {
+          x.push({
+            id: employee.employee_id,
+            color: `rgba(${randomNum1}, ${randomNum2}, ${randomNum3}, 1)`,
+            name: employee.employee_name_surname,
+          });
+        }
+      }
+    });
   });
-});
 
-// Преобразуем в массив
-const result = Object.values(skillMap);
-
-// const keys = Object.keys(result[0]);
-// const firstValue = result[keys[0]]; // 'Alice'
-// const secondValue = result[keys[1]]
+  const result = Object.values(skillMap);
 
   return (
     <RadarChart
@@ -58,48 +61,21 @@ const result = Object.values(skillMap);
       <PolarAngleAxis dataKey="skill_name" />
       <PolarRadiusAxis angle={100} domain={[0, 4]} />
 
-
+      {x.map((i) => (
         <Radar
           dot={true}
-          name="1"
-          dataKey="2"
-          stroke="var(--red)"
-          fill="var(--red)"
-          fillOpacity={0.6}
+          name={i.name}
+          dataKey={i.id}
+          stroke={i.color}
+          fill={i.color}
+          fillOpacity={0.3}
+          key={uuidv4()}
         />
-        <Radar
-          dot={true}
-          name="2"
-          dataKey="3"
-          stroke="blue"
-          fill="blue"
-          fillOpacity={0.6}
-        />
+      ))}
 
-
-      {/* <Radar
-        name="Lily"
-        dataKey="B"
-        stroke="#82ca9d"
-        fill="transparent"
-        fillOpacity={0.6}
-      />
-      <Radar
-        name="Lilyp"
-        dataKey="C"
-        stroke="#7214be"
-        fill="transparent"
-        fillOpacity={0.6}
-      /> */}
       <Legend />
     </RadarChart>
   );
 };
 
 export default RadarEmployee;
-
-// function Radar() {
-//   return <div></div>;
-// }
-
-// export default Radar;

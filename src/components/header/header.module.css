@@ -3,13 +3,10 @@
     flex-direction: column;
     justify-content: flex-start;
     height: 121px;
-    /* width: 100%; */
     margin: 0 0 16px 0;
     padding: 0;
-    
     gap: 26px;
     border-bottom: 2px solid var(--dark-grey-opacity);
-
 }
 
 .header__main_container {
@@ -46,8 +43,6 @@
     height: 40px;
 }
 
-
-
 .header__icons_container {
     display: flex;
     gap: 8px
@@ -75,7 +70,6 @@
     background-image: url(./../../images/question_icon.svg);
 }
 
-
 .header__menu_container {
     display: flex;
     gap: 24px
@@ -84,7 +78,6 @@
 .header__menu_item_link {
     text-decoration: none;
 }
-
 
 .header__menu_item {
     display: flex;

@@ -1,12 +1,13 @@
+import { useState } from "react";
+
 import { NavLink } from "react-router-dom";
 
 import styles from "./sidebar.module.css";
 
 import logo from "../../images/logo.svg";
 import avatar from "../../images/avatar.svg";
-import { useState } from "react";
 
-function Sidebar() {
+function Sidebar(): React.JSX.Element {
   const [isProductPointsActive, setProductPointsActive] = useState(false);
   const [isDesignPointsActive, setDesignPointsActive] = useState(false);
   const [isDashboardActive, setDashboardActive] = useState(true);

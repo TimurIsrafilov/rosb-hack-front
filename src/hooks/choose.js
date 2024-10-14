@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
-import { employees } from "../utils/employees";
+import { employees as employeesMock } from "../utils/employees";
 import { getFilterValue } from "../services/filter/reducer";
 import { useAppSelector } from "./hooks";
+import { getEmployees } from "../services/employees/reducer";
 
 function useChoose() {
   const filterValue = useAppSelector(getFilterValue);
+  const employeesFromBack = useAppSelector(getEmployees);
+
+  const employees = employeesMock || employeesFromBack;
 
   const [chosenEmployees, setChosenEmployees] = useState(employees); // начальное значение
 
@@ -18,7 +22,20 @@ function useChoose() {
 
     // Если хотя бы один фильтр пустой, устанавливаем chosenEmployees как []
     if (hasEmptyFilter) {
-      setChosenEmployees([]);
+      setChosenEmployees([
+        {
+          skills: [
+            {
+              skill_hard_soft_type: "Hard",
+              skill_estimation: 0,
+            },
+            {
+              skill_hard_soft_type: "Soft",
+              skill_estimation: 0,
+            },
+          ],
+        },
+      ]);
       return; // Выходим из эффекта, чтобы не продолжать фильтрацию
     }
 

@@ -19,7 +19,7 @@ function WorkersPanel() {
         value: 0,
       },
     ],
-    title_worst_workers: "Худшие сотрудники",
+    title_worst_workers: "Сотрудники требующие внимания",
     worst_workers: [
       {
         title: "Парфенов Руслан",

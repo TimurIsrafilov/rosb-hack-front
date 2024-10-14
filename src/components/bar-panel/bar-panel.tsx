@@ -3,7 +3,6 @@ import { BarConfig } from "@ant-design/plots/lib/components/bar"; // Импор�
 import { barColors, barData } from "../../utils/mockData";
 
 const BarPanel: React.FC = () => {
-  // Явная типизация объекта config как BarConfig
   const config: BarConfig = {
     data: barData,
     scale: { color: { palette: barColors } },

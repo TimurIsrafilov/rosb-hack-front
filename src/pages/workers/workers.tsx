@@ -1,12 +1,13 @@
-import Filter from "../../components/filter/filter";
-import RadarEmployee from "../../components/radar-employee/radar-employee";
-
-import CustomRadar from "../../components/radar/radar";
 import styles from "./workers.module.css";
 
-function Workers() {
+import Filter from "../../components/filter/filter";
+import InfoPanel from "../../components/info-panel/info-panel";
+import RadarEmployee from "../../components/radar-employee/radar-employee";
+
+function Workers(): React.JSX.Element {
   return (
     <div className={styles.workers}>
+      <InfoPanel />
       <Filter />
       <div className={styles.workers__radar_container}>
         <RadarEmployee type={"Hard"} />

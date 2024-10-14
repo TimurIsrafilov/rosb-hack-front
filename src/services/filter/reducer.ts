@@ -23,10 +23,8 @@ export const filterSlice = createSlice({
       );
 
       if (index !== -1) {
-        // Если объект найден, заменяем его
         state.value[index] = action.payload;
       } else {
-        // Если объект не найден, добавляем его
         state.value = [...state.value, action.payload];
       }
     },
@@ -37,7 +35,8 @@ export const filterSlice = createSlice({
   },
 });
 
-export const getFilterValue = (state: { filter: { value: any; }; }) => state.filter.value;
+export const getFilterValue = (state: { filter: { value: any } }) =>
+  state.filter.value;
 
 export const reducer = filterSlice.reducer;
 export const { setFilterValue, deleteFilterValue } = filterSlice.actions;

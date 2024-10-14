@@ -1,0 +1,30 @@
+.modal {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    position: fixed;
+    top: 150px;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.modal__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 307px;
+    width: 400px;
+    background-color: rgba(255, 255, 255, 1);
+    position: fixed;
+    border-radius: 10px;
+}
+
+.modal__close_icon {
+    position: absolute;
+    top: 20px;
+    left: 365px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(217, 217, 217, 1);
+}

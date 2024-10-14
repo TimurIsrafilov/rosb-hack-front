@@ -1,7 +1,11 @@
 import { useMemo } from "react";
-import { employees } from "../utils/employees";
+import useChoose from "./choose";
 
 function useCalculate() {
+
+  const { chosenEmployees } = useChoose();
+
+
   const {
     employeeNumber,
     employeeBusFactor,
@@ -17,7 +21,7 @@ function useCalculate() {
     const skillEducationInProgress = [];
     const employeesGradeMap = {};
 
-    employees?.forEach((item) => {
+    chosenEmployees?.forEach((item) => {
       // Собираем все employeeNumber
       employeeNumber.push(item.employee_id);
 
@@ -63,7 +67,7 @@ function useCalculate() {
       skillEducationInProgress,
       employeesGrade,
     };
-  }, [employees]);
+  }, [chosenEmployees]);
 
   return {
     employeeNumber,
