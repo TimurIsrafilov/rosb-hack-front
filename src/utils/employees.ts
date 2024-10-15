@@ -1,4 +1,6 @@
-export const employees = [
+import { TypeEmployee } from "../types/types";
+
+export const employees: TypeEmployee[] = [
   {
     employee_id: 2,
     employee_name_surname: "Муравьев Али",

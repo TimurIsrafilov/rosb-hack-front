@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { Pie } from "@ant-design/plots";
-import { PieConfig } from "@ant-design/plots/lib/components/pie"; // Тип для конфигурации Pie
+import { PieConfig } from "@ant-design/plots/lib/components/pie";
 
 import useCalculate from "../../hooks/calculate";
 

@@ -1,46 +1,75 @@
-# Getting Started with Create React App
+# Проект организационной структуры компании
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Описание проекта:
 
-## Available Scripts
+Web-приложение, дашборд для графического отображения корпоративной информации о сотрудниках, их должностях, командах, и навыках. Основная цель проекта — обеспечить удобный и эффективный способ отслеживания и управления ресурсами компании.
 
-In the project directory, you can run:
+## Проект размещен на ресурсе GitHub Pages по ссылке:
 
-### `npm start`
+[https://timurisrafilov.github.io/rosb-hack-front/](https://timurisrafilov.github.io/rosb-hack-front/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Видео туториал как пользоваться приложением и об основных функциях:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+[https://disk.yandex.ru/i/kryYc-5GfYrCOg](https://disk.yandex.ru/i/kryYc-5GfYrCOg)
 
-### `npm test`
+## Команды для сборки проекта:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+склонировать реппозиторий
+```bash
+git clone https://github.com/TimurIsrafilov/rosb-hack-front.git
+```
 
-### `npm run build`
+зайти в папку проекта
+```bash
+cd rosb-hack-front
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+установить зависимости
+```bash
+npm i
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Команды для запуска проекта:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+запустить дев-режим
+```bash
+npm start
+```
 
-### `npm run eject`
+Открыть [http://localhost:3000](http://localhost:3000)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+запустить прод-режим
+```bash
+npm run build
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Использован стек технологий:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" title="reactjs" alt="reactjs" width="20" height="20"/> - **ReactJS** - библиотека JavaScript [https://react.dev/](https://react.dev/)
+- <img src="https://github.com/devicons/devicon/blob/master/icons/redux/redux-original.svg" title="redux" alt="redux" width="20" height="20"/> - **Redux** - стейт-менеджер для ReactJS [https://redux.js.org/](https://redux.js.org/)
+- <img src="https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg" title="typescript" alt="typescript" width="20" height="20"/> - **TypeScript** - система статической типизации для JS [https://www.typescriptlang.org/](https://www.typescriptlang.org/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Ссылки на библиотеки, иконки и шрифты:
 
-## Learn More
+- **Ant Design** - система пользовательского интерфейса,  [https://ant.design/](https://ant.design/) - использованы чекбоксы, выпадающее меню, кнопки, прелоадер
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Recharts** - система графического построения [https://recharts.org/en-US/](https://recharts.org/en-US/) - использована для построения график-радаров страниц "навыки команды" и "навыки сотрудника"
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Ant Design Charts** - система графического построения [https://ant-design-charts.antgroup.com/en](https://ant-design-charts.antgroup.com/en) - использована для построения диаграм "главной страницы"
+
+## Реализованный функционал:
+- Проект привязан к получаемой с бэкенда информации о сотрудниках и их навыках
+- Графическое отображение структуры сотрудников в компании
+- Реализован функционал фильтров для возможности отображать необходимую информацию по заданным параметрам
+- Информация о различных параметрах в компании и в командах отображаются в графическом виде
+
+## Что можно улучшить:
+- Реализовать возможность визуализации информации за прошедшие и будущие периоды 
+- Обеспечить возможность создавать новые команды и перемещать туда сотрудников
+- Добавить возможность перемещать сотрудников между командами
+- Добавить функционал авторизации
+
+## Команда разработчиков:
+
+Тимур Исрафилов
+[![Telegram Badge](https://img.shields.io/badge/-timurisrafilov-blue?style=flat&logo=Telegram&logoColor=white)](https://t.me/timooooon11)

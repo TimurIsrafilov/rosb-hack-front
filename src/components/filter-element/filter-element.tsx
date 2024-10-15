@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { Checkbox, CheckboxProps } from "antd";
 
-import { useAppDispatch } from "../../hooks/hooks";
-
 import styles from "./filter-element.module.css";
 
+import { useAppDispatch } from "../../hooks/hooks";
+
 import FilterButton from "../filter-button/filter-button";
-
 import { setFilterValue } from "../../services/filter/reducer";
-
 import { TypeFilterValue } from "../../types/types";
 
 const FilterElement: React.FC<TypeFilterValue> = (props) => {

@@ -30,6 +30,38 @@ export const skillsData = {
   },
 };
 
+export const levelData = [
+  { name: "Максимальный грейд ", value: 19 },
+  { name: "Есть куда расти ", value: 81 },
+];
+
+export const levelColors = ["rgba(149, 163, 252, 1)", "rgba(169, 197, 218, 1)"];
+
+export const workersData = {
+  title_best_workers: "Лучшие сотрудники",
+  best_workers: [
+    {
+      title: "Александров Глеб",
+      value: 0,
+    },
+    {
+      title: "Андреев Василий",
+      value: 0,
+    },
+    {
+      title: "Афанасьева Дарья",
+      value: 0,
+    },
+  ],
+  title_worst_workers: "Сотрудники требующие внимания",
+  worst_workers: [
+    {
+      title: "Парфенов Руслан",
+      value: 26,
+    },
+  ],
+};
+
 export const radarMockData = [
   {
     skills: [

@@ -3,7 +3,6 @@ import { employees as employeesMock } from "../utils/employees";
 import { getFilterValue } from "../services/filter/reducer";
 import { useAppSelector } from "./hooks";
 import { getEmployees } from "../services/employees/reducer";
-import { useLocation } from "react-router";
 
 import { radarMockData } from "./../utils/mockData";
 
@@ -125,6 +124,7 @@ function useChoose() {
 
     setChosenEmployees(filteredEmployees);
   }, [filterValue]);
+  
   return {
     chosenEmployees,
   };

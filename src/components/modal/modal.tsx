@@ -1,7 +1,5 @@
 import ReactDOM from "react-dom";
 
-
-
 import ModalOverlay from "../modal-overlay/modal-overlay";
 
 import styles from "./modal.module.css";
@@ -22,17 +20,7 @@ function Modal({
   return ReactDOM.createPortal(
     <section className={styles.modal}>
       <ModalOverlay handleOnClose={handleOnClose} />
-      <div className={styles.modal_container}>
-        {!isLoading && (
-          <div
-            className={`${styles.modal_close_icon} mt-15 mr-10`}
-            data-testid="close_button"
-          >
-     
-          </div>
-        )}
-        {children}
-      </div>
+      <div className={styles.modal_container}>{children}</div>
     </section>,
     portal
   );

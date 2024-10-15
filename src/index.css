@@ -15,7 +15,7 @@ code {
 
 :root {
   --black: rgba(0, 0, 0, 1);
-  --black-opacity: rgba(66, 67, 75, 0.3);
+  --black-opacity: rgba(0, 0, 0, 0.6);
   --dark-grey: rgba(66, 67, 75, 1);
   --dark-grey-opacity: rgba(66, 67, 75, 0.12);
   --grey-nonactive: rgba(132, 133, 138, 1);

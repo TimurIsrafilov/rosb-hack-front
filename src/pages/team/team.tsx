@@ -1,9 +1,10 @@
+import styles from "./team.module.css";
+
 import Filter from "../../components/filter/filter";
 import InfoPanel from "../../components/info-panel/info-panel";
 import CustomRadar from "../../components/radar/radar";
-import styles from "./team.module.css";
 
-function Team() {
+function Team(): React.JSX.Element {
   return (
     <div className={styles.team}>
       <InfoPanel />

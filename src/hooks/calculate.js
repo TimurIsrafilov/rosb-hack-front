@@ -2,9 +2,7 @@ import { useMemo } from "react";
 import useChoose from "./choose";
 
 function useCalculate() {
-
   const { chosenEmployees } = useChoose();
-
 
   const {
     employeeNumber,

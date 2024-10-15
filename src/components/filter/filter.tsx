@@ -1,11 +1,9 @@
 import { v4 as uuidv4 } from "uuid";
 
-import useFilter from "../../hooks/filter";
-
 import styles from "./filter.module.css";
 
+import useFilter from "../../hooks/filter";
 import FilterElement from "../filter-element/filter-element";
-
 import { TypeFilterValue } from "../../types/types";
 
 function Filter(): React.JSX.Element {

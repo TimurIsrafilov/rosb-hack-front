@@ -1,6 +1,6 @@
-export const HOME = "/";
-export const COMPANY = "/company";
-export const TEAM = "/team";
-export const WORKERS = "/workers";
-export const EMPLOYEES = "/employees";
-export const BASE_URL = "https://rosbank-hackathon.bounceme.net/api";
+export const HOME: string = "/";
+export const COMPANY: string = "/company";
+export const TEAM: string = "/team";
+export const WORKERS: string = "/workers";
+export const EMPLOYEES: string = "/employees";
+export const BASE_URL: string = "https://rosbank-hackathon.bounceme.net/api";

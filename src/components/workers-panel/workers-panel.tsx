@@ -1,33 +1,9 @@
 import { v4 as uuidv4 } from "uuid";
 
 import styles from "./workers-panel.module.css";
+import { workersData } from "../../utils/mockData";
 
-function WorkersPanel() {
-  const workersData = {
-    title_best_workers: "Лучшие сотрудники",
-    best_workers: [
-      {
-        title: "Александров Глеб",
-        value: 0,
-      },
-      {
-        title: "Андреев Василий",
-        value: 0,
-      },
-      {
-        title: "Афанасьева Дарья",
-        value: 0,
-      },
-    ],
-    title_worst_workers: "Сотрудники требующие внимания",
-    worst_workers: [
-      {
-        title: "Парфенов Руслан",
-        value: 26,
-      },
-    ],
-  };
-
+function WorkersPanel(): React.JSX.Element {
   return (
     <div className={styles.workers_panel}>
       <h4 className={styles.workers_panel__item}>

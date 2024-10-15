@@ -4,7 +4,7 @@ import { TypeEmployee } from "../../types/types";
 import { RootState } from "../store";
 
 type TypeEmployeesState = {
-  employees: Array<TypeEmployee>;
+  employees: TypeEmployee[];
   loading: boolean;
   error: unknown;
 };
