@@ -1,4 +1,3 @@
-// import { employeesSlice } from "./reducer";
 import { createSlice } from "@reduxjs/toolkit";
 import { loadEmployees } from "./actions";
 import { TypeEmployee } from "../../types/types";
@@ -16,7 +15,6 @@ const initialState: TypeEmployeesState = {
   error: null,
 };
 
-//@ts-ignore
 export const employeesSlice = createSlice({
   name: "employees",
   initialState,

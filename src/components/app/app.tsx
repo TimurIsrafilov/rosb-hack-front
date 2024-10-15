@@ -31,6 +31,12 @@ function App(): React.JSX.Element {
 
   return (
     <div className={styles.app}>
+      {isLoading && (
+        <Modal isLoading={isLoading}>
+          <Preloader />
+        </Modal>
+      )}
+
       <ConfigProvider
         theme={{
           token: {
@@ -38,12 +44,6 @@ function App(): React.JSX.Element {
           },
         }}
       >
-        {isLoading && (
-          <Modal isLoading={isLoading}>
-            <Preloader />
-          </Modal>
-        )}
-
         <Sidebar />
         <div className={styles.app__container}>
           <Header />

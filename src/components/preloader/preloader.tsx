@@ -4,6 +4,7 @@ function Preloader(): React.JSX.Element {
   const contentStyle: React.CSSProperties = {
     padding: 50,
     borderRadius: 4,
+    backgroundColor: "var(--black)"
   };
 
   return (

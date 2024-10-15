@@ -1,3 +1,55 @@
+export const barColors = [
+  "rgba(177, 227, 255, 1)",
+  "rgba(186, 237, 189, 1)",
+  "rgba(198, 199, 249, 1)",
+  "rgba(149, 164, 252, 1)",
+  "rgba(169, 197, 219, 1)",
+  "rgba(161, 227, 203, 1)",
+];
+
+export const gradeColors = [
+  "rgba(177, 227, 255, 1)",
+  "rgba(186, 237, 189, 1)",
+  "rgba(198, 199, 249, 1)",
+  "rgba(149, 164, 252, 1)",
+  "rgba(169, 197, 219, 1)",
+  "rgba(161, 227, 203, 1)",
+];
+
+export const skillsData = {
+  title: "Проблемные навыки",
+  soft_skills: {
+    title: "Soft skill",
+    item: "Делегирование",
+    value: 27,
+  },
+  hard_skills: {
+    title: "Hard skill",
+    item: "Навыки работы ",
+    value: 20,
+  },
+};
+
+export const radarMockData = [
+  {
+    skills: [
+      {
+        skill_hard_soft_type: "Hard",
+        skill_estimation: 0,
+      },
+      {
+        skill_hard_soft_type: "Soft",
+        skill_estimation: 0,
+      },
+    ],
+  },
+];
+
+export const teamsData = {
+  max_grade: 19,
+  grow: 53,
+};
+
 export const barData = [
   {
     position: "Тимлид",
@@ -245,40 +297,3 @@ export const barData = [
     value: 1,
   },
 ];
-
-export const skillsData = {
-  title: "Проблемные навыки",
-  soft_skills: {
-    title: "Soft skill",
-    item: "Делегирование",
-    value: 27,
-  },
-  hard_skills: {
-    title: "Hard skill",
-    item: "Навыки работы ",
-    value: 20,
-  },
-};
-
-export const barColors = [
-  "rgba(177, 227, 255, 1)",
-  "rgba(186, 237, 189, 1)",
-  "rgba(198, 199, 249, 1)",
-  "rgba(149, 164, 252, 1)",
-  "rgba(169, 197, 219, 1)",
-  "rgba(161, 227, 203, 1)",
-];
-
-export const gradeColors = [
-  "rgba(177, 227, 255, 1)",
-  "rgba(186, 237, 189, 1)",
-  "rgba(198, 199, 249, 1)",
-  "rgba(149, 164, 252, 1)",
-  "rgba(169, 197, 219, 1)",
-  "rgba(161, 227, 203, 1)",
-];
-
-export const teamsData = {
-  max_grade: 19,
-  grow: 53,
-};

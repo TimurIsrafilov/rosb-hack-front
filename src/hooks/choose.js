@@ -3,6 +3,9 @@ import { employees as employeesMock } from "../utils/employees";
 import { getFilterValue } from "../services/filter/reducer";
 import { useAppSelector } from "./hooks";
 import { getEmployees } from "../services/employees/reducer";
+import { useLocation } from "react-router";
+
+import { radarMockData } from "./../utils/mockData";
 
 function useChoose() {
   const filterValue = useAppSelector(getFilterValue);
@@ -10,32 +13,18 @@ function useChoose() {
 
   const employees = employeesMock || employeesFromBack;
 
-  const [chosenEmployees, setChosenEmployees] = useState(employees); // начальное значение
+  const [chosenEmployees, setChosenEmployees] = useState(employees);
 
   useEffect(() => {
     let filteredEmployees = employees;
 
-    // Проверка, есть ли пустые фильтры
     const hasEmptyFilter = filterValue.some(
       (filter) => filter.options.length === 0
     );
 
-    // Если хотя бы один фильтр пустой, устанавливаем chosenEmployees как []
+    // Если хотя бы один фильтр пустой, устанавливаем chosenEmployees как radarMockData
     if (hasEmptyFilter) {
-      setChosenEmployees([
-        {
-          skills: [
-            {
-              skill_hard_soft_type: "Hard",
-              skill_estimation: 0,
-            },
-            {
-              skill_hard_soft_type: "Soft",
-              skill_estimation: 0,
-            },
-          ],
-        },
-      ]);
+      setChosenEmployees(radarMockData);
       return; // Выходим из эффекта, чтобы не продолжать фильтрацию
     }
 
@@ -134,9 +123,8 @@ function useChoose() {
       );
     }
 
-    setChosenEmployees(filteredEmployees); // Обновляем состояние с отфильтрованными сотрудниками
-  }, [filterValue]); // Следим за изменениями в filterValue
-
+    setChosenEmployees(filteredEmployees);
+  }, [filterValue]);
   return {
     chosenEmployees,
   };

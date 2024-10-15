@@ -14,7 +14,7 @@ import useChoose from "../../hooks/choose";
 const RadarEmployee = (props) => {
   const { chosenEmployees } = useChoose();
   const skillMap = {};
-  const x = [];
+  const allEmployees = [];
 
   chosenEmployees.forEach((employee) => {
     employee.skills.forEach((skill) => {
@@ -26,7 +26,9 @@ const RadarEmployee = (props) => {
         }
 
         skillMap[skillName][employee.employee_id] = skill.skill_estimation;
-        const exists = x.some((item) => item.id === employee.employee_id);
+        const exists = allEmployees.some(
+          (item) => item.id === employee.employee_id
+        );
 
         function getRandomNumber() {
           return Math.floor(Math.random() * 255);
@@ -36,7 +38,7 @@ const RadarEmployee = (props) => {
         const randomNum3 = getRandomNumber();
 
         if (!exists) {
-          x.push({
+          allEmployees.push({
             id: employee.employee_id,
             color: `rgba(${randomNum1}, ${randomNum2}, ${randomNum3}, 1)`,
             name: employee.employee_name_surname,
@@ -47,6 +49,7 @@ const RadarEmployee = (props) => {
   });
 
   const result = Object.values(skillMap);
+  const employeesToShow = allEmployees.slice(0, 5);
 
   return (
     <RadarChart
@@ -61,7 +64,7 @@ const RadarEmployee = (props) => {
       <PolarAngleAxis dataKey="skill_name" />
       <PolarRadiusAxis angle={100} domain={[0, 4]} />
 
-      {x.map((i) => (
+      {employeesToShow.map((i) => (
         <Radar
           dot={true}
           name={i.name}
