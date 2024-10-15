@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 
-import { CloseIcon } from "@ya.praktikum/react-developer-burger-ui-components";
+
 
 import ModalOverlay from "../modal-overlay/modal-overlay";
 
@@ -28,7 +28,7 @@ function Modal({
             className={`${styles.modal_close_icon} mt-15 mr-10`}
             data-testid="close_button"
           >
-            <CloseIcon type="primary" onClick={handleOnClose} />
+     
           </div>
         )}
         {children}
