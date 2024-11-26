@@ -4,7 +4,7 @@
 
 Web application - dashboard for graphic display of company information about employees, their positions, teams, and skills. The main goal of the app is to provide a convenient and effective way to track and manage company resources.
 
-## The app is deployed at GitHub Pages by following link:
+## The app is deployed at GitHub Pages by the following link:
 
 [https://timurisrafilov.github.io/rosb-hack-front/](https://timurisrafilov.github.io/rosb-hack-front/)
 
