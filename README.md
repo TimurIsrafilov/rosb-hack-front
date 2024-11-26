@@ -1,75 +1,75 @@
-# Проект организационной структуры компании
+# Web app for the company structure owerview
 
-## Описание проекта:
+## Project description:
 
-Web-приложение, дашборд для графического отображения корпоративной информации о сотрудниках, их должностях, командах, и навыках. Основная цель проекта — обеспечить удобный и эффективный способ отслеживания и управления ресурсами компании.
+Web application - dashboard for graphic display of company information about employees, their positions, teams, and skills. The main goal of the app is to provide a convenient and effective way to track and manage company resources.
 
-## Проект размещен на ресурсе GitHub Pages по ссылке:
+## The app is deployed at GitHub Pages by following link:
 
 [https://timurisrafilov.github.io/rosb-hack-front/](https://timurisrafilov.github.io/rosb-hack-front/)
 
-## Видео туториал как пользоваться приложением и об основных функциях:
+## Video tutorial about app and main functionality:
 
 [https://disk.yandex.ru/i/kryYc-5GfYrCOg](https://disk.yandex.ru/i/kryYc-5GfYrCOg)
 
-## Команды для сборки проекта:
+## Build commands:
 
-склонировать реппозиторий
+clone repository
 ```bash
 git clone https://github.com/TimurIsrafilov/rosb-hack-front.git
 ```
 
-зайти в папку проекта
+go to project folder
 ```bash
 cd rosb-hack-front
 ```
 
-установить зависимости
+install dependencies
 ```bash
 npm i
 ```
 
-## Команды для запуска проекта:
+## Commands for app run:
 
-запустить дев-режим
+run dev mode
 ```bash
 npm start
 ```
 
-Открыть [http://localhost:3000](http://localhost:3000)
+Open [http://localhost:3000](http://localhost:3000)
 
-запустить прод-режим
+run prod mode
 ```bash
 npm run build
 ```
 
-## Использован стек технологий:
+## Stack of technologies used:
 
-- <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" title="reactjs" alt="reactjs" width="20" height="20"/> - **ReactJS** - библиотека JavaScript [https://react.dev/](https://react.dev/)
-- <img src="https://github.com/devicons/devicon/blob/master/icons/redux/redux-original.svg" title="redux" alt="redux" width="20" height="20"/> - **Redux** - стейт-менеджер для ReactJS [https://redux.js.org/](https://redux.js.org/)
-- <img src="https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg" title="typescript" alt="typescript" width="20" height="20"/> - **TypeScript** - система статической типизации для JS [https://www.typescriptlang.org/](https://www.typescriptlang.org/)
+- <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" title="reactjs" alt="reactjs" width="20" height="20"/> - **ReactJS** - JavaScript library [https://react.dev/](https://react.dev/)
+- <img src="https://github.com/devicons/devicon/blob/master/icons/redux/redux-original.svg" title="redux" alt="redux" width="20" height="20"/> - **Redux** - state manager for ReactJS [https://redux.js.org/](https://redux.js.org/)
+- <img src="https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg" title="typescript" alt="typescript" width="20" height="20"/> - **TypeScript** - static typing system for JS [https://www.typescriptlang.org/](https://www.typescriptlang.org/)
 
-## Ссылки на библиотеки, иконки и шрифты:
+## Links to libraries, icons:
 
-- **Ant Design** - система пользовательского интерфейса,  [https://ant.design/](https://ant.design/) - использованы чекбоксы, выпадающее меню, кнопки, прелоадер
+- **Ant Design** - user interface system,  [https://ant.design/](https://ant.design/) - used checkboxes, drop-down menu, buttons, preloader
 
-- **Recharts** - система графического построения [https://recharts.org/en-US/](https://recharts.org/en-US/) - использована для построения график-радаров страниц "навыки команды" и "навыки сотрудника"
+- **Recharts** - graphical system [https://recharts.org/en-US/](https://recharts.org/en-US/) - used to build chart radars of the "team skills" and "employee skills" pages
 
-- **Ant Design Charts** - система графического построения [https://ant-design-charts.antgroup.com/en](https://ant-design-charts.antgroup.com/en) - использована для построения диаграм "главной страницы"
+- **Ant Design Charts** - graphical system [https://ant-design-charts.antgroup.com/en](https://ant-design-charts.antgroup.com/en) - used to build the "main page" diagrams
 
-## Реализованный функционал:
-- Проект привязан к получаемой с бэкенда информации о сотрудниках и их навыках
-- Графическое отображение структуры сотрудников в компании
-- Реализован функционал фильтров для возможности отображать необходимую информацию по заданным параметрам
-- Информация о различных параметрах в компании и в командах отображаются в графическом виде
+## Implemented functionality:
+- the project is tied to information about employees and their skills received from the back-end
+- graphical display of the employee structure in the company
+- filter functionality has been implemented to display the necessary information according to specified parameters
+- information about various parameters in the company and in the teams is displayed in graphical form
 
-## Что можно улучшить:
-- Реализовать возможность визуализации информации за прошедшие и будущие периоды 
-- Обеспечить возможность создавать новые команды и перемещать туда сотрудников
-- Добавить возможность перемещать сотрудников между командами
-- Добавить функционал авторизации
+## What can be improved:
+- implement the ability to visualize information for past and future periods
+- provide the ability to create new teams and move employees there
+- add the ability to move employees between teams
+- add authorization functionality
 
-## Команда разработчиков:
+## Developers team:
 
-Тимур Исрафилов
+Timur Israfilov
 [![Telegram Badge](https://img.shields.io/badge/-timurisrafilov-blue?style=flat&logo=Telegram&logoColor=white)](https://t.me/timooooon11)
